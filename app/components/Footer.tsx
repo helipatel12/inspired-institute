@@ -1,111 +1,152 @@
-const services = ["Planning", "Research", "Consulting", "Analysis", "User Testing"];
-const companyLinks = ["Who We Are", "Our Services", "Our Clients", "Pricing", "Contact Us"];
+const courseLinks = [
+  { label: "Class 6–10 Foundation", href: "/Courses" },
+  { label: "Class 11–12 Science",   href: "/Courses" },
+  { label: "JEE Preparation",       href: "/Courses" },
+  { label: "NEET Preparation",      href: "/Courses" },
+  { label: "Olympiad & NTSE",       href: "/Courses" },
+];
+
+const pageLinks = [
+  { label: "About Us",   href: "/About" },
+  { label: "Academic",   href: "/Academic" },
+  { label: "Our People", href: "/People" },
+  { label: "Blog",       href: "/Blog" },
+  { label: "Contact Us", href: "/Connect" },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-white text-gray-800 border-t border-gray-100 font-sans">
+    <footer style={{ background: "var(--text)", color: "white" }}>
       <div className="max-w-7xl mx-auto px-6 py-16 grid gap-12 md:grid-cols-12">
 
-        {/* 🏢 BRAND & ABOUT */}
+        {/* BRAND */}
         <div className="md:col-span-4">
-          <h2 className="text-3xl font-black uppercase tracking-tight text-slate-900">
+          <h2 className="font-display text-3xl font-black tracking-tight text-white">
             Inspired Institute
           </h2>
-          <p className="text-red-500 font-bold mt-1 text-lg italic">
+          <p className="font-semibold mt-1 text-base italic" style={{ color: "var(--accent)" }}>
             Empowering Future Scientists
           </p>
-          
-          <div className="mt-10">
-            <h3 className="text-xl font-bold text-slate-900 mb-4">About Us</h3>
-            <p className="text-gray-500 text-sm leading-relaxed max-w-sm">
-              Dedicated coaching for Class 6–12 Science, JEE, and NEET. 
-              We focus on delivering high-quality education through conceptual clarity 
-              and consistent student mentorship.
-            </p>
+          <p className="text-white/50 text-sm leading-relaxed mt-4 max-w-sm">
+            Dedicated coaching for Class 6–12 Science, JEE, and NEET in Vadodara.
+            We focus on conceptual clarity and consistent personal mentorship.
+          </p>
+
+          {/* Contact info */}
+          <div className="mt-8 space-y-3">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--accent)" }}>Call</span>
+              <p className="text-white/70 text-sm mt-0.5">+91 99745 39118</p>
+            </div>
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--accent)" }}>Email</span>
+              <p className="text-white/70 text-sm mt-0.5">inspiredinstitute234@gmail.com</p>
+            </div>
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "var(--accent)" }}>Location</span>
+              <p className="text-white/70 text-sm mt-0.5">Vadodara, Gujarat</p>
+            </div>
           </div>
         </div>
 
-        {/* 📚 SERVICES (COURSES) */}
-        <div className="md:col-span-2">
-          <h4 className="font-bold text-lg mb-6">Services</h4>
+        {/* COURSES */}
+        <div className="md:col-span-3">
+          <h4 className="font-bold text-sm uppercase tracking-widest mb-6 text-white/40">Courses</h4>
           <ul className="space-y-3">
-            {services.map((item) => (
-              <li key={item} className="flex items-center gap-2 text-sm text-gray-600 hover:text-red-500 transition-colors cursor-pointer">
-                <span className="w-1.5 h-1.5 bg-gray-300 rounded-full" /> {item}
+            {courseLinks.map((item) => (
+              <li key={item.label}>
+                <a
+                  href={item.href}
+                  className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
+                >
+                  <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: "var(--accent)" }} />
+                  {item.label}
+                </a>
               </li>
             ))}
           </ul>
         </div>
 
-        {/* 🏛️ COMPANY */}
+        {/* PAGES */}
         <div className="md:col-span-2">
-          <h4 className="font-bold text-lg mb-6">Company</h4>
+          <h4 className="font-bold text-sm uppercase tracking-widest mb-6 text-white/40">Pages</h4>
           <ul className="space-y-3">
-            {companyLinks.map((item) => (
-              <li key={item} className="flex items-center gap-2 text-sm text-gray-600 hover:text-red-500 transition-colors cursor-pointer">
-                <span className="w-1.5 h-1.5 bg-gray-300 rounded-full" /> {item}
+            {pageLinks.map((item) => (
+              <li key={item.label}>
+                <a
+                  href={item.href}
+                  className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
+                >
+                  <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: "var(--accent)" }} />
+                  {item.label}
+                </a>
               </li>
             ))}
           </ul>
         </div>
 
-        {/* 📞 CONTACT & NEWSLETTER */}
-        <div className="md:col-span-4">
-          <h4 className="font-bold text-lg mb-6">Contact us</h4>
-          <div className="space-y-4 mb-8">
-            <div>
-              <p className="font-bold text-sm">Call :</p>
-              <p className="text-gray-600 text-sm">+91 XXXXX XXXXX</p>
-            </div>
-            <div>
-              <p className="font-bold text-sm">Email:</p>
-              <p className="text-gray-600 text-sm">inspiredinstitute234@gmail.com</p>
-            </div>
-            <div className="w-8 h-1 bg-red-500 rounded-full" />
-          </div>
-
-          {/* NEWSLETTER */}
-          <div className="relative mb-6">
-            <input 
-              type="email" 
-              placeholder="Write Email" 
-              className="w-full bg-gray-100 border-none rounded py-3 px-4 text-sm focus:ring-1 focus:ring-red-500 outline-none"
+        {/* NEWSLETTER */}
+        <div className="md:col-span-3">
+          <h4 className="font-bold text-sm uppercase tracking-widest mb-6 text-white/40">Stay Updated</h4>
+          <p className="text-white/50 text-sm mb-4 leading-relaxed">
+            Get exam tips, result updates, and admission alerts in your inbox.
+          </p>
+          <div className="relative mb-8">
+            <input
+              type="email"
+              placeholder="Your email address"
+              className="w-full bg-white/10 border border-white/10 rounded-xl py-3 px-4 text-sm text-white placeholder-white/30 focus:outline-none focus:border-white/30 transition-colors"
             />
-            <button className="absolute right-0 top-0 h-full bg-red-500 text-white px-3 rounded-r hover:bg-red-600 transition-colors">
-              ▶
+            <button
+              className="absolute right-2 top-1/2 -translate-y-1/2 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-colors"
+              style={{ background: "var(--accent)" }}
+            >
+              →
             </button>
           </div>
 
-          {/* SOCIALS */}
-          <div className="mt-6">
-            <div className="flex gap-3 mb-3">
-              {['F', 'T', 'L', 'W', 'I'].map((icon, idx) => (
-                <div 
-                  key={idx} 
-                  className={`w-9 h-9 rounded-full flex items-center justify-center border text-sm font-bold cursor-pointer transition-colors
-                    ${idx === 0 ? 'bg-red-500 border-red-500 text-white' : 'border-gray-300 text-gray-600 hover:border-red-500 hover:text-red-500'}`}
+          {/* Social icons */}
+          <div>
+            <p className="text-xs font-bold uppercase tracking-widest mb-3 text-white/40">Follow Us</p>
+            <div className="flex gap-3">
+              {[
+                { icon: "f",  label: "Facebook",  href: "https://www.facebook.com/InspiredInstituteVadodara/" },
+                { icon: "in", label: "Instagram", href: "https://www.instagram.com/inspired_institute/" },
+                { icon: "yt", label: "YouTube",   href: "https://www.youtube.com/@ConceptCapsuleEdu" },
+                { icon: "x", label: "X",  href: "#" },
+              ].map((s, i) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="w-9 h-9 rounded-full border text-xs font-black flex items-center justify-center transition-all hover:scale-110"
+                  style={{
+                    background: i === 0 ? "var(--accent)" : "transparent",
+                    borderColor: i === 0 ? "var(--accent)" : "rgba(255,255,255,0.2)",
+                    color: "white",
+                    textDecoration: "none"
+                  }}
                 >
-                  {icon}
-                </div>
+                  {s.icon}
+                </a>
               ))}
             </div>
-            <p className="font-bold text-lg text-slate-900">Follow Us</p>
           </div>
         </div>
       </div>
 
-      {/* 🔻 BOTTOM BAR */}
-      <div className="bg-[#0f172a] text-white py-6">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium">
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-red-400">Privacy Policy</a>
-            <span className="text-red-500">|</span>
-            <a href="#" className="hover:text-red-400">Our History</a>
-            <span className="text-red-500">|</span>
-            <a href="#" className="hover:text-red-400">What We Do</a>
+      {/* BOTTOM BAR */}
+      <div className="border-t border-white/10 py-5">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-white/40">
+          <div className="flex gap-5">
+            <a href="#" className="hover:text-white/70 transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-white/70 transition-colors">Terms of Use</a>
+            <a href="/Connect" className="hover:text-white/70 transition-colors">Contact</a>
           </div>
-          <p className="text-gray-400 uppercase tracking-widest">
-            © {new Date().getFullYear()} Inspired Institute. All images are for demo purposes only.
+          <p className="uppercase tracking-widest">
+            © {new Date().getFullYear()} Inspired Institute, Vadodara. All rights reserved.
           </p>
         </div>
       </div>
