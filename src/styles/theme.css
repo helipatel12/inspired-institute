@@ -1,0 +1,63 @@
+/* ════════════════════════════════════════════════════════════
+   🎨  THEME COLORS — Edit this file to change the entire app
+   ════════════════════════════════════════════════════════════
+   All colors are defined as CSS variables on :root.
+   Components reference them via var(--token-name).
+   Just change the hex values below and the whole site updates.
+════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── BRAND ── */
+  --primary:         #342C68;   /* main brand */
+  --primary-mid:     #4C438A;   /* secondary brand */
+  --primary-dark:    #241E4E;   /* deep brand / headings */
+  --primary-light:   #ecebf5;   /* tinted backgrounds */
+  --primary-glow:    rgba(52, 44, 104, 0.14);
+  --sidebar:         #2E285C;
+
+  --accent:          #F58220;   /* accent / CTA */
+  --accent-dark:     #d96d10;
+  --accent-light:    #ffeedb;
+  --accent-glow:     rgba(245, 130, 32, 0.18);
+
+  /* ── BACKGROUNDS ── */
+  --bg:              #F7F7FA;   /* page background */
+  --surface:         #FFFFFF;   /* card background */
+  --muted:           #eef0f7;   /* subtle section bg */
+
+  /* ── TEXT ── */
+  --text:            #241E4E;   /* headings */
+  --text-muted:      #5B5B72;   /* body */
+  --text-faint:      #8B8BA3;   /* captions */
+
+  /* ── BORDERS ── */
+  --border:          #E4E6F1;
+  --border-hover:    #C8CBE0;
+
+  /* ── STATUS ── */
+  --success:         #22C55E;
+  --warning:         #F59E0B;
+  --error:           #EF4444;
+  --red:             #EF4444; /* alias */
+  --info:            #3B82F6;
+
+  /* ── RADIUS ── */
+  --radius: 0.75rem;
+
+  /* ── shadcn semantic mirrors (do not edit unless renaming tokens) ── */
+  --background:           var(--bg);
+  --foreground:           var(--text);
+  --card:                 var(--surface);
+  --card-foreground:      var(--text);
+  --popover:              var(--surface);
+  --popover-foreground:   var(--text);
+  --primary-foreground:   #ffffff;
+  --secondary:            var(--muted);
+  --secondary-foreground: var(--text);
+  --muted-foreground:     var(--text-muted);
+  --accent-foreground:    #ffffff;
+  --destructive:          var(--red);
+  --destructive-foreground: #ffffff;
+  --input:                var(--border);
+  --ring:                 var(--primary);
+}

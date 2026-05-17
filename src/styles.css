@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "./styles/theme.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* All color tokens now live in src/styles/theme.css — edit there. */
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --color-card: var(--surface);
+  --color-card-foreground: var(--text);
+  --color-popover: var(--surface);
+  --color-popover-foreground: var(--text);
+  --color-primary: var(--primary);
+  --color-primary-foreground: #ffffff;
+  --color-secondary: var(--muted);
+  --color-secondary-foreground: var(--text);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-accent-foreground: #ffffff;
+  --color-destructive: var(--red);
+  --color-destructive-foreground: #ffffff;
+  --color-border: var(--border);
+  --color-input: var(--border);
+  --color-ring: var(--primary);
+  --font-sans:    'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * { border-color: var(--border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: var(--accent-light);
+    color: var(--primary-dark);
+  }
+}
+
+/* ── TYPOGRAPHY ── */
+.font-display { font-family: 'Playfair Display', Georgia, serif; }
+
+/* ── UTILITY COMPONENT CLASSES ── */
+.section-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+}
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  background: var(--primary); color: #fff;
+  font-weight: 700; font-size: 0.85rem;
+  padding: 0.85rem 1.6rem; border-radius: 0.85rem;
+  box-shadow: 0 6px 20px var(--primary-glow);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.btn-primary:hover { background: var(--primary-mid); transform: translateY(-1px); box-shadow: 0 10px 24px var(--primary-glow); }
+
+.btn-accent {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: #fff; font-weight: 700; font-size: 0.85rem;
+  padding: 0.85rem 1.6rem; border-radius: 0.85rem;
+  box-shadow: 0 6px 20px var(--accent-glow);
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+.btn-accent:hover { transform: translateY(-1px); filter: brightness(1.05); }
+
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  background: transparent; color: var(--text);
+  border: 1.5px solid var(--border);
+  font-weight: 700; font-size: 0.85rem;
+  padding: 0.8rem 1.4rem; border-radius: 0.85rem;
+  transition: all .2s ease;
+}
+.btn-outline:hover { background: var(--primary-light); border-color: var(--primary); color: var(--primary); }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  box-shadow: 0 2px 14px rgba(15,15,30,0.04);
+  transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
+}
+.card:hover { box-shadow: 0 12px 32px rgba(15,15,30,0.07); }
+
+.rounded-inherit { border-radius: inherit; }
